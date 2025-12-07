@@ -1,1 +1,8 @@
+************
+README
+************
 
+- This program allows the user to encrypt and decrypt using RSA in home-built modules.
+- RSA offers in-built modules to perform encryption, decryption, digital signing, verification, etc using RSA in a much more efficient and customizable context.
+- For any actual implementation, I recommend using the in-built Python module for utilizing RSA.
+- This program is designed purely as a learning exersize.
