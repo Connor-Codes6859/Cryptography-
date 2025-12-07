@@ -20,24 +20,29 @@ def main():
     msg = input("Enter your message to encrypt: ") #take user input for message to encrypt
     msg_encoded = int.from_bytes(msg.encode('utf-8'), byteorder='big') # encode the message from int to utf-8 so input can handle letters
 
-    # print our values to console
+    # print our values to console (\n for new line)
+    print("\n\n--------------------\nOur RSA Primitive Values\n--------------------")
     print("p = ",p)
     print("q = ",q)
     print("n = ",n)
-    print("phi(n) = ",r)
+    print("\n--------------------\nOur RSA PUBLIC KEY\n--------------------")
     print("e (public) = ", e)
+    print("phi(n) = ",r)
+    print("\n--------------------\nOur RSA PRIVATE KEY\n--------------------")
     print("d (private) = ",d)
+    print("\n--------------------\nOur Plaintext Message\n--------------------")
     print("Mesage (m) = ",msg)
     print("Encoded Message = ",msg_encoded)
-    print("\n\n")
+    print("\n")
 
     encrypted_msg = encrypt(msg_encoded, e, n) #encrypt our message (in encoded  format)
     decrypted_msg = decrypt(encrypted_msg, d, n) # decrypt our message
-    decrypted_msg_encoded = int.to_bytes(decrypted_msg, length=len(msg), byteorder='big').decode('utf-8') #decode the encrypted output to retrieve the original message
+    decrypted_msg_decoded = int.to_bytes(decrypted_msg, length=len(msg), byteorder='big').decode('utf-8') #decode the encrypted output to retrieve the original message
 
     # print our values to console
     print("Encrypted message = ",encrypted_msg)
-    print("Encoded Decrypted message = ",decrypted_msg)
+    print("\nEncoded Decrypted message = ",decrypted_msg)
+    print("\nDecrypted message = ",decrypted_msg_decoded)
 
 # function to run the equation to encrypt with RSA
 def encrypt(m, e, n):
